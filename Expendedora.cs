@@ -11,6 +11,21 @@ namespace Expendedora_G3_2021_II
         private float precio;
         private bool existencia;
 
+        //Propiedad de la temperatura
+        public byte Temperatura { 
+            get => temperatura;
+            set
+            {
+                if (value < 14 || value > 19)
+                {
+                    temperatura = 14;
+                }else
+                {
+                    temperatura = value;
+                }          
+                
+            }
+        }
 
         public void Saludar()
         {
@@ -26,12 +41,12 @@ namespace Expendedora_G3_2021_II
         public Expendedora()
         {
             marca = "AMS";
-            temperatura = 14;
+            Temperatura = 14;
             precio = 10;
             Saludar();
             ControlarTiempoDisplay();
             Console.WriteLine("Marca: {0} ", marca);
-            Console.WriteLine("Temperatura interna:  {0} [°C] ", temperatura);
+            Console.WriteLine("Temperatura interna:  {0} [°C] ", Temperatura);
             ControlarTiempoDisplay();
             InteraccionIterativa();           
 
