@@ -16,6 +16,12 @@ namespace Expendedora_G3_2021_II
         {
             Console.WriteLine( " Bienvenido ");
         }
+        public void MensajeSoporte()
+        {
+            Console.WriteLine("Entrando en modo soporte");
+        }
+
+
 
         public Expendedora()
         {
@@ -27,8 +33,16 @@ namespace Expendedora_G3_2021_II
             Console.WriteLine("Marca: {0} ", marca);
             Console.WriteLine("Temperatura interna:  {0} [°C] ", temperatura);
             ControlarTiempoDisplay();
-            InteraccionIterativa();
-            
+            InteraccionIterativa();           
+
+        }
+
+        public Expendedora(bool soporte)
+        {
+            if(soporte)
+            {
+                MensajeSoporte();
+            }
 
         }
 
