@@ -19,7 +19,11 @@ namespace Expendedora_G3_2021_II
             */
 
 
-            Cafe miExpendedoraCafe = new Cafe(100);
+            /*Cafe miExpendedoraCafe = new Cafe(100);
+            miExpendedoraCafe.MostrarCodigoDeProducto();*/
+            Snack expendoraSnack = new Snack();
+            expendoraSnack.MostrarCodigoDeProducto();
+
 
 
             Console.ReadLine();

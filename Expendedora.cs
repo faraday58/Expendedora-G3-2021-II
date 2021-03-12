@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace Expendedora_G3_2021_II
 {
-    class Expendedora
+    abstract class Expendedora
     {
         private string marca;
         private byte temperatura;
@@ -12,24 +12,59 @@ namespace Expendedora_G3_2021_II
         private bool existencia;
 
         //Propiedad de la temperatura
-        public byte Temperatura { 
+        public byte Temperatura {
             get => temperatura;
             set
             {
                 if (value < 14 || value > 19)
                 {
                     temperatura = 14;
-                }else
+                } else
                 {
                     temperatura = value;
-                }          
-                
+                }
+
+            }
+        }
+
+        public string Marca {
+            get
+            {
+                return marca;
+            }
+            set
+            {
+                if (value == "")
+                {
+                    marca = "AWS";
+                }
+                else
+                {
+                    marca = value;
+                }
+
+            }
+        }
+
+        public float Precio {
+            get => precio;
+            set
+            {
+                if (value < 0)
+                {
+                    precio = 10;
+                }
+                else
+                {
+                    precio = value;
+                }
+
             }
         }
 
         public void Saludar()
         {
-            Console.WriteLine( " Bienvenido ");
+            Console.WriteLine(" Bienvenido ");
         }
         public void MensajeSoporte()
         {
@@ -40,26 +75,24 @@ namespace Expendedora_G3_2021_II
 
         public Expendedora()
         {
-            marca = "AMS";
-            Temperatura = 14;
-            precio = 10;
             Saludar();
-            ControlarTiempoDisplay();
-            Console.WriteLine("Marca: {0} ", marca);
-            Console.WriteLine("Temperatura interna:  {0} [°C] ", Temperatura);
-            ControlarTiempoDisplay();
-            InteraccionIterativa();           
-
         }
 
         public Expendedora(bool soporte)
         {
-            if(soporte)
+            if (soporte)
             {
                 MensajeSoporte();
             }
 
         }
+        public Expendedora(string marca)
+        {
+            this.marca = marca;
+        }
+       
+        
+
 
         public void InteraccionIterativa()
         {
@@ -89,7 +122,7 @@ namespace Expendedora_G3_2021_II
             Console.Clear();
         }
 
-        public string MostrarCodigoDeProducto()
+        public virtual string MostrarCodigoDeProducto()
         {
             Console.WriteLine("A1: Snicker \t B2: Papas \t B3: Chips Moradas   ");
             Console.WriteLine("Ingrese el código del producto a elegir");
@@ -102,13 +135,13 @@ namespace Expendedora_G3_2021_II
             switch(codigo)
             {
                 case  "A1" :
-                    Console.WriteLine("El precio es: {0} ",precio );
+                    Console.WriteLine("El precio es: {0} ",Precio );
                     break;
                 case "B2" :
-                    Console.WriteLine("El precio es: {0} ",precio+5 );
+                    Console.WriteLine("El precio es: {0} ",Precio+5 );
                     break;
                 case "B3":
-                    Console.WriteLine("El precio es: {0} ", precio + 4 );
+                    Console.WriteLine("El precio es: {0} ", Precio + 4 );
                     break;
             }
         }
@@ -116,4 +149,8 @@ namespace Expendedora_G3_2021_II
 
 
     }
+
+
+
+    
 }
